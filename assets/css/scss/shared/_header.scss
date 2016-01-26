@@ -1,0 +1,81 @@
+/*
+
+Zeppelin Prototype  : _header.scss
+author              : Jeremy Anderson
+version             : 1.0
+
+.......................................................*/
+
+
+header.branding {
+    color: #fff;
+    background: $black;
+    .wrapper {
+        position: relative;
+        height: 50px;
+        h1 {
+            text-indent: -9999px;
+            display: inline-block;
+            position: absolute;
+            top: 10px;
+            left: $gutter;
+            height: 30px;
+            width: 128px;
+            background: transparent url(../img/zeppelin-logo.png) 0 0 no-repeat;
+        }
+        .connected {
+            text-indent: -9999px;
+            display: inline-block;
+            position: absolute;
+            top: 16px;
+            right: $gutter;
+            height: 18px;
+            width: 126px;
+            background: transparent url(../img/connected-help.png) right 0 no-repeat;
+        }
+    }
+}
+
+.title-bar {
+    background: $white;
+    @include hover;
+    &.fixed-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            box-shadow: 0 1px 3px rgba(0,0,0,.1);
+            z-index: 100;
+    }
+    .wrapper {
+        position: relative;
+        height: 50px;
+        .notebook-title {
+            display: inline-block;
+            height: 26px;
+            width: 240px;
+            position: absolute;
+            top: 12px;
+            left: $gutter;
+            background: transparent url(../img/notebook-title.png) 0 center no-repeat;
+        }
+        .notebook-controls {
+            display: inline-block;
+            position: relative;
+            top: 14px;
+            left: 50%;
+            height: 23px;
+            width: 187px;
+            margin-left: -94px;
+            background: transparent url(../img/notebook-controls.png) right 0 no-repeat;
+        }
+        .settings-icon {
+            display: inline-block;
+            height: 22px;
+            width: 22px;
+            position: absolute;
+            top: 14px;
+            right: $gutter;
+            background: transparent url(../img/settings-icon.png) 0 0 no-repeat;
+        }
+    }
+}

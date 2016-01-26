@@ -1,0 +1,171 @@
+/*
+
+Zeppelin Prototype  : global.scss
+author              : Jeremy Anderson
+version             : 1.0
+
+.......................................................*/
+
+
+/* STYLE GUIDE ........................................./
+
+	
+	Fonts			: $sans-serif
+	
+	Text Color		: $text-color
+	
+	Links Colors   	: $primary-color
+	
+	Rounded Corners	: @include border-radius(_px)
+	
+	
+
+/* GLOBAL VARIABLES/MIXINS
+...................................................................................................*/
+
+$site-width: 1240px;
+$gutter: 20px;
+
+$break-1: 750px;
+
+
+/* Clear Fix */
+.clearfix {
+    zoom: 1;
+}
+.clearfix:after, .clearfix:before {
+    content: "\0020";
+    visibility: hidden;
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+.clearfix:after{
+    clear:both;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin hover {
+    -moz-transition:  0.5s ease;
+    -webkit-transition:  0.5s ease;
+    transition:  0.5s ease;
+}
+
+
+/* SHARED IMPORTS
+...................................................................................................*/
+
+
+@import 'shared/_reset.scss';	/* CSS Reset by Eric Meyer */
+@import 'shared/_type.scss';	/* Font-families, @font-face, Typography */
+@import 'shared/_color.scss';	/* Colors */
+
+
+/* BODY
+...................................................................................................*/
+
+html {
+	font: 14px/1.5em $sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape while allowing user zoom */
+	color: $text-color;
+	height : 100%;
+	width: 100%;
+        body {
+            padding-bottom: $gutter*2;
+            background: $body-background;
+		}
+  	}
+
+/* =Branding
+...................................................................................................*/
+
+
+@import 'shared/_header.scss';	/* Header Branding Styles and Navigation */
+
+
+/* =Layout
+...................................................................................................*/
+
+.wrapper {
+    max-width: $site-width;
+    padding: 0 $gutter; 
+    margin: 0 auto;
+    &.fixed-header {
+        padding-top: 50px;
+    }
+    .row {
+        position: relative;
+        .paragraph {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            .drag-bar {
+                height: 30px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                cursor: move;
+                img {
+                    opacity: 0;
+                    @include hover;
+                }
+                &:hover {
+                    img {
+                        opacity: 1;
+                    }
+                }
+            }
+            img {
+                line-height: 1;
+                display: block;
+                width: 100%;
+            }
+            &.selected {
+                box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                border: 1px solid $border-color;
+            }
+            &.new-paragraph {
+                display: none;
+            }
+        }
+        .add-paragraph {
+            height: 24px;
+            background-position: center;
+            background-size: 18px 18px;
+            @include hover;
+            &:hover {
+                cursor: pointer;
+                background: lighten($light-blue, 30%) url(../img/plus-icon.png) center center no-repeat;
+            }
+        }
+        &.columns {
+            .paragraph {
+                display: inline-block;
+                width: 49%;
+                margin-right: 1.6%;
+                &:last-child {
+                    margin-right: 0;
+                }
+                @media screen and (max-width: $break-1) {
+                    display: block;
+                    width: 100%;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+
+
