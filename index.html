@@ -17,8 +17,22 @@
 <!-- JS -->
 <script type="text/JavaScript" src="assets/js/jquery-2.2.0.min.js"></script>
 <script type="text/javascript" src="assets/js/global.js"></script>
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 
+<script>
+    $(function() {
+    $( "#sortable" ).sortable({
+      revert: true
+    });
+    $( "#draggable" ).draggable({
+      connectToSortable: "#sortable",
+      helper: "clone",
+      revert: "invalid"
+    });
+    $( "ul, li" ).disableSelection();
+    });
+</script>
 
 </head>
 
@@ -48,72 +62,72 @@
 
 
 <div class="wrapper jq-content gridster">
-    <ul>
+
         
-        <li class="row" data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-            <div class="add-paragraph jq-add-paragraph"></div>
-        </li>
+    <li class="row" data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+        <div class="add-paragraph jq-first-add-paragraph"></div>
+    </li>
+    <ul id="sortable">
         
         <li class="row" data-row="2" data-col="1" data-sizex="1" data-sizey="1">
             <div class="paragraph jq-paragraph">
                 <header class="drag-bar"><img src="assets/img/drag-bar-full.png" /></header>
                 <img src="assets/img/load-table.png" alt="Load data into table" />
+            </div>     
+            <div class="row">
+                <div class="add-paragraph jq-add-paragraph"></div>
             </div>
-        </li>
-        
-        <li class="row">
-            <div class="add-paragraph jq-add-paragraph"></div>
         </li>
         
         <li class="row">
             <div class="paragraph jq-paragraph">
                 <header class="drag-bar"><img src="assets/img/drag-bar-full.png" /></header>
                 <img src="assets/img/bank-customers-1-full.png" alt="Bank Customers" />
+            </div>     
+            <div class="row">
+                <div class="add-paragraph jq-add-paragraph"></div>
             </div>
-        </li>
-        
-        <li class="row">
-            <div class="add-paragraph jq-add-paragraph"></div>
         </li>
         
         <li class="row">
             <div class="paragraph jq-paragraph">
                 <header class="drag-bar"><img src="assets/img/drag-bar-full.png" /></header>
                 <img src="assets/img/bank-customers-2-full.png" alt="Bank Customers" />
+            </div>            
+            <div class="row">
+                <div class="add-paragraph jq-add-paragraph"></div>
             </div>
         </li>
         
         <li class="row">
-            <div class="add-paragraph jq-add-paragraph"></div>
-        </li>
-        
-        <li class="row columns">
+            <div class="row columns">
+                <div class="paragraph jq-paragraph">
+                    <header class="drag-bar"><img src="assets/img/drag-bar-half.png" /></header>
+                    <img src="assets/img/bank-customers-1.png" alt="Bank Customers" />
+                </div>
             
-            <div class="paragraph jq-paragraph">
-                <header class="drag-bar"><img src="assets/img/drag-bar-half.png" /></header>
-                <img src="assets/img/bank-customers-1.png" alt="Bank Customers" />
+                <div class="paragraph jq-paragraph">
+                    <header class="drag-bar"><img src="assets/img/drag-bar-half.png" /></header>
+                    <img src="assets/img/bank-customers-2.png" alt="Bank Customers" />
+                </div>
             </div>
-        
-            <div class="paragraph jq-paragraph">
-                <header class="drag-bar"><img src="assets/img/drag-bar-half.png" /></header>
-                <img src="assets/img/bank-customers-2.png" alt="Bank Customers" />
+            <div class="row">
+                <div class="add-paragraph jq-add-paragraph"></div>
             </div>
             
         </li>
         
-        <li class="row">
-            <div class="add-paragraph jq-add-paragraph"></div>
-        </li>
         
         <li class="row">
             <div class="paragraph jq-paragraph">
                 <header class="drag-bar"><img src="assets/img/drag-bar-full.png" /></header>
                 <img src="assets/img/filter.png" alt="Filter" />
             </div>
-        </li>
+
         
-        <li class="row">
-            <div class="add-paragraph jq-add-paragraph"></div>
+            <div class="row">
+                <div class="add-paragraph jq-add-paragraph"></div>
+            </div>
         </li>
     
     </ul>

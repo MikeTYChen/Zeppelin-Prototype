@@ -98,6 +98,9 @@ html {
     max-width: $site-width;
     padding: 0 $gutter; 
     margin: 0 auto;
+    li{
+        list-style: none;
+    }
     &.fixed-header {
         padding-top: 50px;
     }

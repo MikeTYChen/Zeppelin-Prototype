@@ -61,12 +61,24 @@ function selectParagraph() {
 function addParagraph() {
     $('.jq-add-paragraph').click(function(event) {
         $('.selected').removeClass('selected');
-        $(this).after('<li class="row"><div class="paragraph jq-paragraph new-paragraph selected"><header class="drag-bar"><img src="assets/img/drag-bar-full.png" /></header><img src="assets/img/blank-paragraph.png" alt="Filter" /></div></li><li class="row"><div class="add-paragraph jq-add-paragraph"></div></li>');
+        $(this).parent('.row').parent('.row').after('<li class="row"><div class="paragraph jq-paragraph new-paragraph selected"><header class="drag-bar"><img src="assets/img/drag-bar-full.png" /></header><img src="assets/img/blank-paragraph.png" alt="Filter" /></div><div class="row"><div class="add-paragraph jq-add-paragraph"></div></div></li>');
         $('.new-paragraph').stop( true, true ).fadeIn("slow");
         $('html, body').animate({
             scrollTop: $(this).offset().top - 150
         }, 700);
         $('.jq-add-paragraph').unbind();
+        event.stopPropagation();
+        addParagraph();
+        selectParagraph();
+    });
+    $('.jq-first-add-paragraph').click(function(event) {
+        $('.selected').removeClass('selected');
+        $('ul').prepend('<li class="row"><div class="paragraph jq-paragraph new-paragraph selected"><header class="drag-bar"><img src="assets/img/drag-bar-full.png" /></header><img src="assets/img/blank-paragraph.png" alt="Filter" /></div><div class="row"><div class="add-paragraph jq-add-paragraph"></div></div></li>');
+        $('.new-paragraph').stop( true, true ).fadeIn("slow");
+        $('html, body').animate({
+            scrollTop: $(this).offset().top - 150
+        }, 700);
+        $('.jq-add-paragraph-1').unbind();
         event.stopPropagation();
         addParagraph();
         selectParagraph();
