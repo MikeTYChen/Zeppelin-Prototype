@@ -11,7 +11,7 @@ $(document).ready(function() {
     stickyHeader();
     addParagraph();
     selectParagraph();
-    
+    openAndCloseDock();
     $(window).resize(function() {
         stickyHeader();
     });
@@ -19,7 +19,6 @@ $(document).ready(function() {
 });
 
 //End Ready......................................
-
 
 function stickyHeader() {
     // get height of first two headers
@@ -44,6 +43,18 @@ function stickyHeader() {
         });
     
     }
+}
+
+function openAndCloseDock(){
+    $("#open-dock").click(function(){        
+        $(".code-dock").toggle();
+    });
+}
+function showCodeDock(){
+    $(".code-dock").show();
+}
+function hideCodeDock(){
+    $(".code-dock").hide();
 }
 
 function selectParagraph() {
