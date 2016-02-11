@@ -12,6 +12,7 @@ $(document).ready(function() {
     addParagraph();
     selectParagraph();
     openAndCloseDock();
+    moveDown();
     $(window).resize(function() {
         stickyHeader();
     });
@@ -44,6 +45,31 @@ function stickyHeader() {
     
     }
 }
+
+
+function loop(){
+    $('html,body').stop().animate({scrollTop: $(window).scrollTop() + 700}, 1000, 'linear', loop);
+}        
+function stop(){
+    $('html,body').stop();
+}
+function moveDown(){
+    $("#move-down").hover(function () {
+       loop();
+    },function () {
+       stop();
+    });
+
+}
+function showMoveArrow(){
+    $("#move-down").show();
+}
+function hideMoveArrow(){
+    $("#move-down").hide();
+}
+
+
+
 
 function openAndCloseDock(){
     $("#open-dock").click(function(){        
