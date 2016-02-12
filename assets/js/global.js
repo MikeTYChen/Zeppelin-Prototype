@@ -68,8 +68,11 @@ function hideMoveArrow(){
     $("#move-down").hide();
 }
 
-
-
+function autoHideIfEmptyDock(){
+    if($('ul#code-dock li').length ==0){
+        hideCodeDock();
+    }
+}
 
 function openAndCloseDock(){
     $("#open-dock").click(function(){        

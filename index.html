@@ -28,22 +28,34 @@
       start:function(event,ui){
             showMoveArrow();
             showCodeDock();
+
             $(ui.helper).css("width","400px");
+            $(ui.helper).css("z-index",5);
+            $(ui.helper).css("margin-left",event.clientX/2);
 
         },
         stop: function(event,ui){
-
             hideMoveArrow();
             var start = $('.code-dock').position().top;
+            $(ui.item).css("margin-left","0");
             // hideCodeDock();
             if(event.clientY>=start){
                 $(ui.item).appendTo('#code-dock');
             }
+            
+            autoHideIfEmptyDock();
         }
     });
     $( "#code-dock" ).sortable({
-      revert: true,
-      connectWith: "#sortable",
+        revert: true,
+        connectWith: "#sortable",
+        start:function(event,ui){
+            showMoveArrow();
+        },
+        stop:function(event,ui){
+            hideMoveArrow();
+            autoHideIfEmptyDock();
+        }
     });
     $( "#draggable" ).draggable({
       connectToSortable: "#sortable",
@@ -156,14 +168,14 @@
 <div id="open-dock">
 <h3>Toggle Code Dock</h3>
 </div>
-<div id="move-down" style="display:none;border-radius: 50%; cursor:pointer; position:fixed; bottom:200px; left:49%; background-color:#5f93cd; padding:15px 18px">
+<div id="move-down" style="display:none;border-radius: 50%; cursor:pointer; position:fixed; bottom:200px; left:49%; background-color:#5f93cd; padding:15px 18px; z-index:999;">
 <h3>&#9660;</h3>
 </div>
 <div class="code-dock">
     <div class="wrapper">
     <div class="row">
         <h2 class="code-dock-txt">Code Dock</h2>
-        <ul id="code-dock" style="">
+        <ul id="code-dock">
         </ul> 
     </div>
     </div>
